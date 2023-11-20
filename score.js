@@ -1,14 +1,14 @@
 function playerRanks(ranks, scores) {
   const uniqueRanks = [...new Set(ranks)];
-  let result = [];
+  let result = []; // space complexity: o(n) 
   for (let score of scores) {
     if (score >= uniqueRanks[0]) {
       result.push(1);
     } else if (score < uniqueRanks[uniqueRanks.length - 1]) {
       result.push(ranks.length + 1);
     } else {
-      for (let i = 1; i < uniqueRanks.length; i++) {
-        if (uniqueRanks[i - 1] > score && score >= uniqueRanks[i]) {
+      for (let i = 1; i < uniqueRanks.length; i++) { // time complexity: o(n^2)
+        if (uniqueRanks[i - 1] > score && score >= uniqueRanks[i]) { 
           result.push(i + 1);
           break;
         }
