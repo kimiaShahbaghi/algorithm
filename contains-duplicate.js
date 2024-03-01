@@ -19,3 +19,14 @@ const containsDuplicatee = (nums) => {
   return false;
 };
 
+// time: o(n) space: o(n)
+const containsDuplicateee = (nums) => {
+  let obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (obj[nums[i]] !== undefined) {
+      return true;
+    }
+    obj[nums[i]] = i;
+  }
+  return false;
+};
